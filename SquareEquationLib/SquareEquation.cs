@@ -31,8 +31,8 @@ public class SquareEquation
             return roots2;
         }
         else{
-            var roots3 = new double[]{};
-            return roots3;
+            var roots = new double[]{};
+            return roots;
         }
     }
 }

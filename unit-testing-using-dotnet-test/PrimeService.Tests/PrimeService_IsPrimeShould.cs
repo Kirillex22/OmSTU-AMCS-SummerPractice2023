@@ -22,7 +22,6 @@ namespace SquareEquationLib.UnitTests
         }
 
         [Theory]
-        [InlineData(1, 9999999999, 1)]
         [InlineData(1, 2, 1)]
         public void IsCountOfRoots_1_ReturnTrue(double a, double b, double c)
         {
@@ -31,7 +30,7 @@ namespace SquareEquationLib.UnitTests
         }
 
         [Theory]
-        [InlineData(1, 10, 5)]
+        [InlineData(1, 5, 10)]
         public void IsCountOfRoots_0_ReturnTrue(double a, double b, double c)
         {
             double[] result = SquareEquation.Solve(a, b, c);

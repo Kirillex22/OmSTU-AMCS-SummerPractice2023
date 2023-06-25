@@ -1,17 +1,51 @@
 using Xunit;
-using Prime.Services;
+using SquareEquationLib;
 
-namespace Prime.UnitTests.Services
+namespace SquareEquationLib.UnitTests
 {
-    public class PrimeService_IsPrimeShould
+    public class SquareEquation_IsEquationOK
     {
-        [Fact]
-        public void IsPrime_InputIs1_ReturnFalse()
+        [Theory]
+        [InlineData(0, 1, 1)]
+        [InlineData(double.NaN, 1, 1)]
+        [InlineData(double.PositiveInfinity, 1, 1)]
+        [InlineData(double.NegativeInfinity, 1, 1)]
+        [InlineData(1, double.NaN, 1)]
+        [InlineData(1, double.PositiveInfinity, 1)]
+        [InlineData(1, double.NegativeInfinity, 1)]
+        [InlineData(1, 1, double.NaN)]
+        [InlineData(1, 1, double.PositiveInfinity)]
+        [InlineData(1, 1, double.NegativeInfinity)]
+        public void IsABC_NaNorInf_ReturnTrue(double a, double b, double c)
         {
-            var primeService = new PrimeService();
-            bool result = primeService.IsPrime(1);
-
-            Assert.False(result, "1 should not be prime");
+            Assert.ThrowsAny<System.ArgumentException>(() => SquareEquation.Solve(a,b,c));
         }
+
+        [Theory]
+        [InlineData(1, 9999999999, 1)]
+        [InlineData(1, 2, 1)]
+        public void IsCountOfRoots_1_ReturnTrue(double a, double b, double c)
+        {
+            double[] result = SquareEquation.Solve(a, b, c);
+            Assert.Equal(result.Length, 1);
+        }
+
+        [Theory]
+        [InlineData(1, 10, 5)]
+        public void IsCountOfRoots_0_ReturnTrue(double a, double b, double c)
+        {
+            double[] result = SquareEquation.Solve(a, b, c);
+            Assert.Equal(result.Length, 0);
+        }
+
+        [Theory]
+        [InlineData(1, 3, 1)]
+        public void IsCountOfRoots_2_ReturnTrue(double a, double b, double c)
+        {
+            double[] result = SquareEquation.Solve(a, b, c);
+            Assert.Equal(result.Length, 2);
+        }
+
+
     }
 }

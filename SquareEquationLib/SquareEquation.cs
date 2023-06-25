@@ -8,11 +8,11 @@ public class SquareEquation
         if (Math.Abs(a)<Epsilon)
             throw new System.ArgumentException();
         else if (double.IsNaN(a)||(double.IsPositiveInfinity(a))||(double.IsNegativeInfinity(a)))
-            throw new ArgumentException();
+            throw new System.ArgumentException();
         else if (double.IsNaN(b)||(double.IsPositiveInfinity(b))||(double.IsNegativeInfinity(b)))
-            throw new ArgumentException();
+            throw new System.ArgumentException();
         else if (double.IsNaN(c)||(double.IsPositiveInfinity(c))||(double.IsNegativeInfinity(c)))
-            throw new ArgumentException();
+            throw new System.ArgumentException();
 
         double D = Math.Pow(b,2)-4*a*c;
 
@@ -36,3 +36,4 @@ public class SquareEquation
         }
     }
 }
+

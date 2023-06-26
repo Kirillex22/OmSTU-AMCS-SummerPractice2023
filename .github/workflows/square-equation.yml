@@ -23,7 +23,7 @@ jobs:
         run: dotnet build SquareEquationLib --no-restore /p:ContinuousIntegrationBuild=true
 
       - name: Test
-        run: ./UnitTestingCodeCoverage/XUnit.Coverlet.MSBuild dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
         
 
     

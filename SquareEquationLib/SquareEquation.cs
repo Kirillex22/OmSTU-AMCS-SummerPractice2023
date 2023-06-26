@@ -2,7 +2,7 @@
 
 public class SquareEquation
 {
-    public static double[] Solve(double a, double b, double c)
+    public double[] Solve(double a, double b, double c)
     {
         double Epsilon = 1e-5;
         if (Math.Abs(a)<Epsilon)

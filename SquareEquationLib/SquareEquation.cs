@@ -17,18 +17,41 @@ public class SquareEquation
         double D = Math.Pow(b,2)-4*a*c;
 
         if (D >= Epsilon){
-            var roots1 = new double[2];
-            double x1 = -(b + Math.Sign(b)*Math.Sqrt(D))/2;
-            double x2 = c/x1;
-            roots1[0] = x1;
-            roots1[1] = x2;
-            return roots1;
+            if (Math.Abs(b) > Epsilon)
+            {
+                var roots1 = new double[2];
+                double x1 = -(b + Math.Sign(b)*Math.Sqrt(D))/2*a;
+                double x2 = c/x1;
+                roots1[0] = x1;
+                roots1[1] = x2;
+                return roots1;
+            }
+            else
+            {
+                var roots1 = new double[2];
+                double x1 = -(b + Math.Sqrt(D))/2*a;
+                double x2 = -(b - Math.Sqrt(D))/2*a;
+                roots1[0] = x1;
+                roots1[1] = x2;
+                return roots1;
+            } 
         }
         else if (Math.Abs(D) < Epsilon){
-            var roots2 = new double[1];
-            double x1 = -(b + Math.Sign(b)*Math.Sqrt(D))/2;
-            roots2[0] = x1;
-            return roots2;
+            if (Math.Abs(b) > Epsilon)
+            {
+                var roots2 = new double[1];
+                double x1 = -(b + Math.Sign(b)*Math.Sqrt(D))/2*a;
+                roots2[0] = x1;
+                return roots2;
+            }
+            else
+            {
+                var roots2 = new double[1];
+                double x1 = -b/2*a;
+                roots2[0] = x1;
+                return roots2;
+            }
+            
         }
         else{
             var roots = new double[]{};

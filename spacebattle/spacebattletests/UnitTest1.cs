@@ -62,6 +62,7 @@ public class UnitTest1
     {
         bool res1 = (double.Parse(x) == coords[0]);
         bool res2 = (double.Parse(y) == coords[1]);
+        
         Assert.True(res1&&res2);
     }
 

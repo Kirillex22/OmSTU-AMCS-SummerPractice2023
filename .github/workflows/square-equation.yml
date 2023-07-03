@@ -2,7 +2,7 @@ name: square equation test
 
 on:
   push:
-    branches: ["unittest"]
+    branches: ["unittest_v2"]
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
         run: dotnet build SquareEquationLib --no-restore /p:ContinuousIntegrationBuild=true
 
       - name: Test
-        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura ./UnitTestingCodeCoverage/XUnit.Coverlet.MSBuild
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura ./SquareEquationTests_v2
         
 
     

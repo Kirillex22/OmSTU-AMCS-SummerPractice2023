@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace XUnit.Coverlet.MSBuild
+namespace SquareEquationTest
 {
     using TechTalk.SpecFlow;
     using System;
@@ -31,7 +31,7 @@ namespace XUnit.Coverlet.MSBuild
 #line 1 "square_equation.feature"
 #line hidden
         
-        public РешениеКвадратногоУравненияFeature(РешениеКвадратногоУравненияFeature.FixtureData fixtureData, XUnit_Coverlet_MSBuild_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public РешениеКвадратногоУравненияFeature(РешениеКвадратногоУравненияFeature.FixtureData fixtureData, SquareEquationTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();

@@ -37,9 +37,9 @@ public class UnitTest1
             double[] solution = squareq.Solve(abc[0], abc[1], abc[2]);
             var len = solution.Length;
             if (len == 1)
-                solution = new double[] {solution[0]};
+                this.solution = new double[] {solution[0]};
             else if (len == 2)
-                solution = new double[] {solution[0], solution[1]};
+                this.solution = new double[] {solution[0], solution[1]};
         }
         catch(Exception exception)
         {

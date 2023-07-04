@@ -28,14 +28,14 @@ public class SpaceCadetsMarks
 {
     public static IEnumerable<JObject> GetStudentsWithHighestGPA(Task json_input)
     {
-        var max =  json_input.data
+        var max = json_input.data
             .GroupBy(c => c.name)
             .Max(c => c.Average(x=> x.mark));
 
         var studentsWithHighestGPA = json_input.data
             .GroupBy(c => c.name)
             .Where(c=> c.Average(x => x.mark) == max)
-            .Select(c=> new JObject(new JProperty("Cadet", c.Key), new JProperty("GPA", c.Average(x=> x.mark), 3)));
+            .Select(c=> new JObject(new JProperty("Cadet", c.Key), new JProperty("GPA", Math.Round(c.Average(x=> x.mark), 3))));
 
         return studentsWithHighestGPA;
     }
@@ -44,9 +44,9 @@ public class SpaceCadetsMarks
     {
         var GPAByDiscipline = json_input.data
             .GroupBy(c => c.discipline)
-            .Select(d => new JObject(new JProperty(d.Key, d.Average(c => c.mark))));
+            .Select(d => new JObject(new JProperty(d.Key, Math.Round(d.Average(c => c.mark), 3))));
 
-            return GPAByDiscipline;   
+        return GPAByDiscipline;   
     }
 
     public static IEnumerable<JObject> GetBestGroupsByDiscipline(Task json_input)
@@ -57,9 +57,9 @@ public class SpaceCadetsMarks
             .GroupBy(d => d.Discipline)
             .Select(s => new JObject(new JProperty("Discipline", s.Key), 
                     new JProperty("Group", s.OrderByDescending(c => c.GPA).First().Group),
-                    new JProperty("GPA", s.Max(c => c.GPA))));
+                    new JProperty("GPA", Math.Round(s.Max(c => c.GPA), 3))));
 
-            return bestGroupsByDiscipline;
+        return bestGroupsByDiscipline;
     }
 
     static void Main(string[] args)
@@ -67,9 +67,7 @@ public class SpaceCadetsMarks
         string inputPath = args[0];
         string outputPath = args[1];
 
-        var json_input = new Task();
-
-        json_input = JsonConvert.DeserializeObject<Task>(File.ReadAllText(inputPath));
+        Task json_input = JsonConvert.DeserializeObject<Task>(File.ReadAllText(inputPath));
 
         if (json_input.taskName == "GetStudentsWithHighestGPA")
         {

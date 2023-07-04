@@ -67,31 +67,9 @@ public class SpaceCadetsMarks
         string inputPath = args[0];
         string outputPath = args[1];
 
-        var json_input = JsonConvert.DeserializeObject<Task>(File.ReadAllText(inputPath));
+        var json_input = new Task();
 
-        /*switch(json_input.taskName)
-        {
-            case("GetStudentsWithHighestGPA"):
-                IEnumerable<JObject> studentsWithHighestGPA = GetStudentsWithHighestGPA(json_input);
-                res = new JObject(new JProperty("Response", studentsWithHighestGPA));
-                File.WriteAllText(outputPath, JsonConvert.SerializeObject(res, Formatting.Indented));
-                break;
-
-            case("GetGPAByDiscipline"):
-                IEnumerable<JObject> GPAByDiscipline = GetGPAByDiscipline(json_input);
-                res = new JObject(new JProperty("Response", GPAByDiscipline));
-                File.WriteAllText(outputPath, JsonConvert.SerializeObject(res, Formatting.Indented));
-                break;
-
-            case("GetBestGroupsByDiscipline"):
-                IEnumerable<JObject> bestGroupsByDiscipline = GetBestGroupsByDiscipline(json_input);
-                res = new JObject(new JProperty("Response", bestGroupsByDiscipline));
-                File.WriteAllText(outputPath, JsonConvert.SerializeObject(res, Formatting.Indented));
-                break;
-
-            default:
-                break;
-        }*/
+        json_input = JsonConvert.DeserializeObject<Task>(File.ReadAllText(inputPath));
 
         if (json_input.taskName == "GetStudentsWithHighestGPA")
         {

@@ -3,7 +3,7 @@ name: spacebattle
 
 on:
   push:
-    branches: ["spacebattle"]
+    branches: ["spacebattle_v2"]
 
 jobs:
   build:
